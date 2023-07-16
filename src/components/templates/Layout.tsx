@@ -1,6 +1,8 @@
+'use client'
 import AsideMenu from "./AsideMenu"
 import Header from "./Header"
 import Content from "./Content"
+import useThemeContext from "@/data/hook/useThemeContext"
 
 interface LayoutProps {
     title: string
@@ -9,8 +11,10 @@ interface LayoutProps {
 }
 
 export default function Layout({title, subtitle, children}: LayoutProps) {
+    const {theme, switchTheme} =  useThemeContext()!
+
     return (
-        <section className="dark flex h-screen w-screen">
+        <section className={`${theme} flex h-screen w-screen`}>
             <AsideMenu />
             <div className={`flex flex-col w-full p-7
             bg-gray-300 text-gray-700
