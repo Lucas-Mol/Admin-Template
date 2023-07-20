@@ -47,3 +47,16 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
   }
+
+  @keyframes fadeDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+

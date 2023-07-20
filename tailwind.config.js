@@ -9,6 +9,9 @@ module.exports = {
   theme: {
     extend: {
     },
+    animation: {
+      fadeDown: 'fadeDown 0.4s ease-out',
+    },
   },
   plugins: [],
 }

@@ -16,13 +16,16 @@ export default function Layout({title, subtitle, children}: LayoutProps) {
     return (
         <section className={`${theme} flex h-screen w-screen`}>
             <AsideMenu />
-            <div className={`flex flex-col w-full p-7
+            <div className={`flex flex-col w-full
+            md:p-7
             bg-gray-300 text-gray-700
             dark:bg-gray-800 dark:text-gray-200`}>
                 <Header title={title} subtitle={subtitle} />
-                <Content >
-                    {children}
-                </Content>
+                <div className="p-5">
+                    <Content >
+                        {children}
+                    </Content>
+                </div>
             </div>
         </section>
     )

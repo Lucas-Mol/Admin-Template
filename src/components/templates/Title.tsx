@@ -5,7 +5,7 @@ interface TitleProps {
 
 export default function Title({title, subtitle}: TitleProps) {
     return (
-        <div>
+        <div className='text-center md:text-left'>
             <h1 className={`
                 font-black text-3xl
                 text-gray-900
