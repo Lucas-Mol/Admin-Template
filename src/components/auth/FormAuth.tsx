@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useState } from "react"
 import AuthInput from "./AuthInput"
 import { WarningIcon } from "../icons"
 import useAuthContext from "@/data/hook/useAuthContext"
+import Loading from "../templates/Loading"
 
 interface FormAuthProps {
     mode: 'login' | 'signup'
@@ -10,7 +11,8 @@ interface FormAuthProps {
 }
 
 export default function FormAuth({mode, setMode}: FormAuthProps) {
-    const { user, loginGoogle} = useAuthContext()
+    const [ loading, setLoading ] = useState(false)
+    const { signin, login, loginGoogle} = useAuthContext()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -22,18 +24,38 @@ export default function FormAuth({mode, setMode}: FormAuthProps) {
         setTimeout(() => setError(''), duration * 1000)
     }
 
-    function submit() {
-        if(mode === 'login') {
-            console.log('login')
-            showError('Login error!')
-        } else {
-            console.log('signup')
-            showError('Sign up error!')
+    async function submit() {
+        try{
+            setLoading(true)
+            if(mode === 'login') {
+                await login!(email, password)
+            } else {
+                await signin!(email, password)
+            }
+        } catch(e: any) {
+            showError(e?.message ?? 'Unknown error')
+        } finally {
+            setLoading(false)
         }
     }
 
-    return (
-        <div className="m-10 w-full md:w-1/2 lg:w-1/3">
+    async function handleLoginGoogle() {
+        try {
+            setLoading(true)
+            await loginGoogle!()
+        } catch(e: any) {
+            showError(e?.message ?? 'Unknown error')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    return loading ? (
+            <div className="m-10 w-full md:w-1/2 lg:w-1/3">
+                <Loading />
+            </div>
+        ) : (
+            <div className="m-10 w-full md:w-1/2 lg:w-1/3">
                 <h1 className={`
                     text-3xl font-bold mb-5
                 `}>
@@ -79,7 +101,7 @@ export default function FormAuth({mode, setMode}: FormAuthProps) {
                 <hr className="my-6 border-gray-300 w-full"/>
 
                 <button 
-                    onClick={loginGoogle}
+                    onClick={handleLoginGoogle}
                     className={`
                         w-full 
                         text-white
@@ -115,5 +137,4 @@ export default function FormAuth({mode, setMode}: FormAuthProps) {
                     </p>
                 )}
             </div>
-    )
-}
+        )} 

@@ -1,7 +1,4 @@
-'use client'
-
 import Layout from "@/components/templates/Layout";
-import useThemeContext from "@/data/hook/useThemeContext";
 
 export default function Notifications() {
   return (

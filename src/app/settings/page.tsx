@@ -4,7 +4,7 @@ export default function Settings() {
   return (
     <Layout title="Settings" 
     subtitle="Here will be settings">
-      <h3>Conteúdo!</h3>
+      <h3>Content!</h3>
     </Layout>
   )
 }

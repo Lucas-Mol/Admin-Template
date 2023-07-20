@@ -22,7 +22,8 @@ export default function AuthInput({label, value, type, required, rendered, chang
                 required={required ?? false}
                 className={`
                     px-4 py-3 mt-2 rounded-lg
-                    bg-gray-950 focus:bg-gray-900 
+                    bg-gray-100 focus:bg-gray-50 
+                    dark:bg-gray-950 dark:focus:bg-gray-900 
                     border
                     border-gray-500 focus:border-blue-500 
                     focus:outline-none

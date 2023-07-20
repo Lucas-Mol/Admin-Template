@@ -1,9 +1,12 @@
 'use client'
 
+import useAuthContext from "@/data/hook/useAuthContext";
 import { HomeIcon, SettingsIcon, BellIcon, LogOutIcon } from "../icons";
 import MenuItem from "./MenuItem";
 
 export default function MenuList() {
+    const { logout } = useAuthContext()
+
     return (
         <>
             <ul className="flex-grow">
@@ -13,7 +16,7 @@ export default function MenuList() {
             </ul>
             <ul>
                 <MenuItem 
-                    onClickAction={() => console.log('logout')} 
+                    onClickAction={logout} 
                     text="Logout" 
                     icon={LogOutIcon}
                     className={`
