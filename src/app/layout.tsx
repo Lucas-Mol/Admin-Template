@@ -2,6 +2,7 @@ import { ThemeProvider } from '@/data/context/ThemeContext'
 import './globals.css'
 import type { Metadata } from 'next'
 import useThemeContext from '@/data/hook/useThemeContext'
+import { AuthProvider } from '@/data/context/AuthContext'
 
 export const metadata: Metadata = {
   title: 'Admin Template',
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
         <body className={`font-poppins-400`}>
-          <ThemeProvider>
-            {children}
-          </ThemeProvider>
+          <AuthProvider>
+            <ThemeProvider>
+              {children}
+            </ThemeProvider>
+          </AuthProvider>
         </body>
     </html>
   )

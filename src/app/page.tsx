@@ -1,8 +1,8 @@
 'use client'
-
 import FormAuth from "@/components/auth/FormAuth";
 import RandomImage from "@/components/auth/RandomImage";
 import { useState } from "react";
+import Router from "next/router";
 
 export default function Auth() {
     const [mode, setMode] = useState<'login' | 'signup'>('login')

@@ -12,12 +12,10 @@ export default function AuthInput({label, value, type, required, rendered, chang
 
     return rendered ? (
         <div className="flex flex-col mt-4">
-            <label 
-            htmlFor="text-input">
+            <label>
                 {label}
             </label>
             <input 
-                id="text-input" 
                 type={type ?? 'text'}
                 value={value}
                 onChange={e => changeValue?.(e.target.value)}

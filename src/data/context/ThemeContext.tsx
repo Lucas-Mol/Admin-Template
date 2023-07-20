@@ -17,7 +17,6 @@ export function ThemeProvider(props: any) {
     const [ theme, setTheme ] = useState<Theme>('dark')
 
     function switchTheme() {
-        console.log('switiching theme')
         setTheme(theme === '' ? 'dark' : '')
     }
 

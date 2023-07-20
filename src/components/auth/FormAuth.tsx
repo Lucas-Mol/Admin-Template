@@ -1,6 +1,8 @@
+'use client'
 import { Dispatch, SetStateAction, useState } from "react"
 import AuthInput from "./AuthInput"
 import { WarningIcon } from "../icons"
+import useAuthContext from "@/data/hook/useAuthContext"
 
 interface FormAuthProps {
     mode: 'login' | 'signup'
@@ -8,6 +10,8 @@ interface FormAuthProps {
 }
 
 export default function FormAuth({mode, setMode}: FormAuthProps) {
+    const { user, loginGoogle} = useAuthContext()
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -75,7 +79,7 @@ export default function FormAuth({mode, setMode}: FormAuthProps) {
                 <hr className="my-6 border-gray-300 w-full"/>
 
                 <button 
-                    onClick={submit}
+                    onClick={loginGoogle}
                     className={`
                         w-full 
                         text-white
