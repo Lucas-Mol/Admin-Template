@@ -34,6 +34,11 @@ npm i
 ```
 You'll need to create a Firebase project on <a href='https://firebase.google.com'>https://firebase.google.com</a>, enable 'Google' and 'Email and Password' authentication, and paste its credentials on .env.local
 
+Then run:
+```
+npm run dev
+```
+
 ## Tech Stack
 
 - Typescript
