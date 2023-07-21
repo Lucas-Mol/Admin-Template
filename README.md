@@ -36,6 +36,7 @@ You'll need to create a Firebase project on <a href='https://firebase.google.com
 
 ## Tech Stack
 
+- Typescript
 - React
 - TailwindCSS
 - NextJS
